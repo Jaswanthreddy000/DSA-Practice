@@ -1,0 +1,26 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> hm = new ArrayList<>();
+        List<Integer> cl = new ArrayList<>();
+         csum(candidates,target,0,cl,hm);
+        return hm;
+    }
+
+    public void csum(int[] c, int t, int curr,List<Integer> cl, List<List<Integer>> hm) {
+        if(curr >= c.length) return ;
+        if(t==0)
+        {
+            hm.add(new ArrayList<>(cl));
+            return ;
+            
+        }
+        if(t<0 ) return ;
+       
+         cl.add(c[curr]);
+         csum(c,t-c[curr],curr,cl,hm);
+         cl.remove(cl.size()-1);
+          csum(c,t,curr+1,cl,hm);
+       
+       return ;
+}
+}
