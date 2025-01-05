@@ -1,4 +1,4 @@
-#Theeyagura Jaswanth Reddy
+Theeyagura Jaswanth Reddy
 
 ## Submission checklist
 
