@@ -1,7 +1,6 @@
-# Your Name
+#Theeyagura Jaswanth Reddy
 
 ## Submission checklist
-*Mark checks as explained on this [link](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/about-task-lists#creating-task-lists), and remove this instruction*
 
 - [x] Your submission follows best practices for [commit messages](https://chris.beams.io/posts/git-commit/) AND for [pull requests](https://github.community/t/best-practices-for-pull-requests/10195)
 - [x] `Steps to run the project` AND a `documentation` have been included in a README.md file at root of your project.
@@ -13,18 +12,22 @@
 - [x] You have not plagialised, or blatently copied work; and this submission is your original work. (Code of ethics)
 
 ## Briefly write about the project that you have submitted from the perspective of the user.
--This project is a Form Builder Application that allows an admin to create dynamic forms with multiple types of questions (text, checkbox,dropdown) and also view the analytics of the responses submitted by users.
+- This project is a Form Builder Application that allows an admin to create dynamic forms with multiple types of questions (text, checkbox,dropdown) and also view the analytics of the responses submitted by users.
 - Users can fill out these forms, and the admin can view the responses and analyze data efficiently. 
-- The admin can add, edit, and delete forms or questions as required. 
+- The Admin can add, edit, and delete forms or questions as required. 
+-  For Each Form Admin can order the questions in any order.
+-  For Each Question Admin can also order the options(checkbox,dropdown) for each quesiton.
+-  Form can be submitted only if all the questions are answered.
+(atleast one checkbox needs to selected for sucessful form submission)
 - The platform ensures user-friendly management and tracking of responses.
 
 
 
 ## Assumptions you have made for this project?
-- Admins can create forms and edit forms and also see the analytics of the form, responses of the form and also the answers of the form
-- End User can add multiple responses from the link given and select the form to give reply by clicking on add new response(or by sharing the link of the new response)and also view the analytics of the form
+- Admins can create forms and edit forms and also see the analytics of the form, responses of the form and also the answers of the form.
+- End User can add multiple responses from the link given and select the form to give reply by clicking on add new response(or by sharing the link of the new response)and also view the analytics of the form.
 - Understood to create a order for options and questions in each form such that they can sorted ascending or descending order
--Also in analytics page only if the contents are above 5 only then others will be displayed 
+-Also in analytics page only if the contents are above 5 only then others will be displayed.
 
 
 ## Other information (like testing credentials)
@@ -34,12 +37,12 @@
 
 ## Did you learn anything new while doing this assignment? Please explain.
 - Added a order field to questions and also a order field to options of each question in which way they must be displayed for the user.(This will be very helpful in case of assessment to randomize questions and options).
-- Added a filter method in admin for questions to view by questiontype(text,dropdown,checkbox) and also a filter method for options to filter option by question 
+- Added a filter method in admin for questions to view by questiontype(text,dropdown,checkbox) and also a filter method for options to filter option by question.
 - Also understood Django REST Framework (DRF) in detail and how to handle various scenarios.
 
 
 ## How much time did it take for you complete the project?
-- It took me around 20 hours to complete the project from designing databases, creating views, adding good UI pages and then creating and also adding the admin panel for superuser.
+- It took me around 20 hours to complete the project from designing database models, views, creating user-friendly UI pages and then creating and also adding the admin panel for superuser.
 
 
 ## If you had more time, what enhancements will you make?
