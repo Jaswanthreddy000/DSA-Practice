@@ -1,0 +1,33 @@
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+
+
+class Solution {
+    public boolean isValid(String s) {
+        HashMap<Character,Character> hm = new HashMap<>();
+        hm.put('(',')');
+        hm.put('{','}');
+        hm.put('[',']');
+       Stack<Character> q = new Stack<>();
+        for(int i=0;i<s.length();i++)
+        {
+            char ch = s.charAt(i);
+            if(hm.containsKey(ch)) q.push(ch);
+            else
+            {
+                if(q.isEmpty()) return false;
+                char c = q.pop();
+                if (hm.get(c)!=ch) return false;
+            }
+        }
+
+        if(q.isEmpty()) return true;
+         return false;
+        
+    }
+}
