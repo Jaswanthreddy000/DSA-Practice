@@ -1,0 +1,51 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        int l = strs.length;
+        String []a = new String[l];
+        for(int i=0;i<l;i++)
+        {
+            char ch[] = strs[i].toCharArray();
+            Arrays.sort(ch);
+            int l1 = ch.length;
+            String sm="";
+            for(int j=0;j<l1;j++)
+            {
+               sm += ch[j];
+            }
+            a[i] = sm;
+        }
+        HashMap<String,List<String>> hm= new HashMap<>();
+
+        for(int i=0;i<l;i++)
+        {
+            if(hm.containsKey(a[i]))
+            {    
+                hm.get(a[i]).add(strs[i]);
+            }
+            else
+            {
+                hm.put(a[i], new ArrayList<>());
+                 hm.get(a[i]).add(strs[i]);
+            }
+        }
+        List<List<String>>  hm3 = new ArrayList<>();
+        for(Map.Entry<String,List<String>> hm2 : hm.entrySet())
+                hm3.add(hm2.getValue());
+        return hm3;
+    }
+}
+
+Solution2
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        if (strs == null || strs.length == 0) return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = s.toCharArray();
+            Arrays.sort(ca);
+            String keyStr = String.valueOf(ca);
+            if (!map.containsKey(keyStr)) map.put(keyStr, new ArrayList<>());
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
