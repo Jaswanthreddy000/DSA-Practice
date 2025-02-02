@@ -162,38 +162,161 @@ This is a Django-based FAQ Management System that supports multi-language transl
 ## API Usage
 
 ### Endpoints
-- Fetch FAQs in English (default):
+
+- **Fetch FAQs in English (default):**
     ```bash
     curl http://localhost:8000/api/faqs/
     ```
 
-- Fetch FAQs in Hindi:
+    **Example Response (English):**
+    ```json
+    [
+        {
+            "id": 1,
+            "question": "What is Django?",
+            "answer": "Django is a high-level Python web framework."
+        },
+        {
+            "id": 2,
+            "question": "How to install Django?",
+            "answer": "You can install Django using pip: pip install django."
+        }
+    ]
+    ```
+
+- **Fetch FAQs in Hindi:**
     ```bash
     curl http://localhost:8000/api/faqs/?lang=hi
     ```
 
-- Fetch FAQs in Bengali:
+    **Example Response (Hindi):**
+    ```json
+    [
+        {
+            "id": 1,
+            "question": "Django क्या है?",
+            "answer": "Django एक उच्च-स्तरीय Python वेब फ्रेमवर्क है।"
+        },
+        {
+            "id": 2,
+            "question": "Django कैसे इंस्टॉल करें?",
+            "answer": "आप pip का उपयोग करके Django इंस्टॉल कर सकते हैं: pip install django।"
+        }
+    ]
+    ```
+
+- **Fetch FAQs in Bengali:**
     ```bash
     curl http://localhost:8000/api/faqs/?lang=bn
     ```
 
-- Fetch FAQs in Telugu:
+    **Example Response (Bengali):**
+    ```json
+    [
+        {
+            "id": 1,
+            "question": "Django কী?",
+            "answer": "Django একটি উচ্চ-স্তরের Python ওয়েব ফ্রেমওয়ার্ক।"
+        },
+        {
+            "id": 2,
+            "question": "Django কীভাবে ইনস্টল করবেন?",
+            "answer": "আপনি pip ব্যবহার করে Django ইনস্টল করতে পারেন: pip install django।"
+        }
+    ]
+    ```
+
+- **Fetch FAQs in Telugu:**
     ```bash
     curl http://localhost:8000/api/faqs/?lang=te
     ```
 
-### Example Response
-```json
-[
-    {
-        "id": 1,
-        "question": "What is Django?",
-        "answer": "Django is a web framework.",
-        "question_hi": "Django क्या है?",
-        "question_bn": "জ্যাঙ্গো কী?",
-        "question_te": "డ్యాంగో అంటే ఏమిటి?",
-        "answer_hi": "Django एक वेब फ्रेमवर्क है।",
-        "answer_bn": "জ্যাঙ্গো একটি ওয়েব ফ্রেমওয়ার্ক।",
-        "answer_te": "డ్యాంగో ఒక వెబ్ ఫ్రేమ్‌వర్క్."
-    }
-]
+    **Example Response (Telugu):**
+    ```json
+    [
+        {
+            "id": 1,
+            "question": "Django ఏమిటి?",
+            "answer": "Django ఒక అధిక స్థాయి Python వెబ్ ఫ్రేమ్‌వర్క్."
+        },
+        {
+            "id": 2,
+            "question": "Django ను ఎలా ఇన్స్టాల్ చేయాలి?",
+            "answer": "మీరు pip ను ఉపయోగించి Django ని ఇన్స్టాల్ చేయవచ్చు: pip install django."
+        }
+    ]
+    ```
+
+---
+## Docker Deployment
+
+### Prerequisites
+- **Docker**
+- **Docker Compose**
+
+### Steps
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/faq_project.git
+    cd faq_project
+    ```
+
+2. Build and start the containers:
+    ```bash
+    docker-compose up --build
+    ```
+
+3. Apply migrations:
+    ```bash
+    docker-compose exec web python manage.py migrate
+    ```
+
+4. Create a superuser:
+    ```bash
+    docker-compose exec web python manage.py createsuperuser
+    ```
+
+5. Access the application at:
+    ```
+    http://localhost:8000/
+    ```
+
+## Contributing
+
+Contributions are welcome! Follow these steps:
+
+1. **Fork the repository**.
+2. **Create a new branch**:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+3. **Commit your changes**:
+    ```bash
+    git commit -m "Add your feature"
+    ```
+
+4. **Push to the branch**:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+5. **Open a pull request**.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgments
+- [Django](https://www.djangoproject.com/)
+- [Django REST Framework](https://www.django-rest-framework.org/)
+- [CKEditor](https://ckeditor.com/)
+- [Redis](https://redis.io/)
+
+## Contact
+
+For questions or feedback, feel free to reach out:
+
+- **Name**: Your Name
+- **Email**: your.email@example.com
+- **GitHub**: [your-username](https://github.com/your-username)
