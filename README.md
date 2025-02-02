@@ -21,59 +21,50 @@ This is a Django-based FAQ Management System that supports multi-language transl
 
 ## Submission Checklist
 
+# Submission Checklist
+
 ### 1. **Model Design**
-- [✔] Create a model to store FAQs.
-- [✔] Each FAQ should have:
-  - A question (TextField)
-  - An answer (RichTextField for WYSIWYG editor support)
-  - Language-specific translations (question_hi, question_bn, etc.)
-- [✔] Implement a model method to retrieve translated text dynamically.
+- [✔] Implemented a Django model to store FAQs, including fields for `question`, `answer`, and language-specific translations (e.g., `question_hi`, `question_bn`, etc.).
+- [✔] Created a model method to dynamically retrieve translated text based on the selected language.
 
 ### 2. **WYSIWYG Editor Integration**
-- [✔] Use `django-ckeditor` to allow users to format answers properly.
-- [✔] Ensure that the WYSIWYG editor supports multilingual content.
+- [✔] Integrated `django-ckeditor` to allow users to format FAQ answers using a rich text editor (WYSIWYG).
+- [✔] Ensured that the WYSIWYG editor supports multilingual content by enabling translations for different language fields.
 
 ### 3. **API Development**
-- [✔] Create a **REST API** for managing FAQs.
-- [✔] Support language selection via `?lang=` query parameter.
-- [✔] Ensure responses are fast and efficient using pre-translation.
+- [✔] Developed a REST API to manage FAQs, which supports fetching FAQs in different languages via the `?lang=` query parameter.
+- [✔] Optimized the API for faster responses by implementing pre-translation caching.
 
 ### 4. **Caching Mechanism**
-- [✔] Implement **cache framework** to store translations.
-- [✔] Use Redis for improved performance.
+- [✔] Implemented a caching mechanism using Redis to store translations, improving the performance and reducing the number of calls to external translation services.
 
 ### 5. **Multi-language Translation Support**
-- [✔] Use Google Translate API or `googletrans` for translations.
-- [✔] Automate translations during object creation.
-- [✔] Provide fallback to English if translation is unavailable.
+- [✔] Utilized the Google Translate API (or `googletrans` package) for automating translations during FAQ object creation.
+- [✔] Added a fallback mechanism to default to English if translations for a specific language are unavailable.
 
 ### 6. **Admin Panel**
-- [✔] Register the FAQ model in the Admin site or create one separately.
-- [✔] Enable a user-friendly admin interface for managing FAQs.
+- [✔] Registered the FAQ model in the Django admin interface to allow easy management of FAQs.
+- [✔] Ensured the admin interface is user-friendly, providing easy ways to add and edit FAQ entries.
 
 ### 7. **Unit Tests & Code Quality**
-- [✔] Write unit tests using pytest (or mocha/chai).
-- [✔] Ensure tests cover model methods and API responses.
-- [✔] Follow PEP8/ES6 guidelines and use flake8/JS tools for linting.
+- [✔] Wrote unit tests for FAQ model methods and API responses using `pytest`.
+- [✔] Ensured the code follows best practices by adhering to PEP8 guidelines for Python and using `flake8` for linting.
 
 ### 8. **Documentation**
-- [✔] Write a detailed README with:
-  - Installation steps
-  - API usage examples
+- [✔] Provided detailed documentation in the README file, including:
+  - Clear installation steps
+  - Example API usage for fetching FAQs in different languages
   - Contribution guidelines
-- [✔] Ensure the README is well-structured and easy to follow.
+- [✔] Ensured the README is well-structured and easy to follow for future developers or contributors.
 
 ### 9. **Git & Version Control**
-- [✔] Use Git for version control.
-- [✔] Follow conventional commit messages:
-  - `feat`: Add multilingual FAQ model
-  - `fix`: Improve translation caching
-  - `docs`: Update README with API examples
-- [✔] Ensure atomic commits with clear commit messages.
+- [✔] Used Git for version control with clear and atomic commits.
+- [✔] Followed conventional commit messages (`feat`, `fix`, `docs`) for better clarity and understanding of changes.
 
 ### 10. **Deployment & Docker Support (Bonus)**
-- [✔] Provide a Dockerfile and `docker-compose.yml`.
-- [✔] Deploy the application to Heroku or AWS (optional).
+- [✔] Created a `Dockerfile` and `docker-compose.yml` to enable easy deployment of the application in containerized environments.
+- [✔] Provided instructions for deploying the application to platforms like Heroku or AWS (optional).
+
 
 ## Installation
 
