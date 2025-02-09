@@ -1,0 +1,72 @@
+class Solution {
+
+    public int findCircleNum(int[][] isConnected) {
+        Queue<Integer> a = new LinkedList<>();
+         int n = isConnected.length;
+        boolean[] visit = new boolean[n];
+        int count=0; 
+        for(int i=0;i<n;i++)
+        {
+            if(!visit[i])
+            {
+                count++;
+                bfs(i,isConnected,visit);
+            }
+        }
+        return count;
+    }
+
+    public void bfs(int i, int[][] isConnected, boolean[] visit)
+    {
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(i);
+        visit[i] = true;
+        while(!q.isEmpty())
+        {
+            i = q.poll();
+            for(int j=0;j<isConnected.length;j++)
+            {
+              if(isConnected[i][j]==1 && !visit[j])
+              {
+                 q.offer(j);
+                 visit[j]=true;
+              }
+            }
+        }
+    }
+
+}
+
+
+
+////dfs solution
+
+class Solution {
+
+    public int findCircleNum(int[][] isConnected) {
+        Queue<Integer> a = new LinkedList<>();
+         int n = isConnected.length;
+        boolean[] visit = new boolean[n];
+        int count=0; 
+        for(int i=0;i<n;i++)
+        {
+            if(!visit[i])
+            {
+                count++;
+                dfs(i,isConnected,visit);
+            }
+        }
+        return count;
+    }
+
+   public void dfs(int i,int [][]isConnected, boolean[] visit)
+   {
+      visit[i] = true;
+      for(int j=0;j<isConnected.length;j++)
+      {
+         if(isConnected[i][j]==1 && !visit[j])
+           dfs(j,isConnected,visit);
+      }
+   }
+
+}
