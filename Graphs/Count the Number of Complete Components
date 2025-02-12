@@ -1,0 +1,55 @@
+import java.util.*;
+
+class Solution {
+    public int countCompleteComponents(int n, int[][] edges) {
+        HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
+        
+        // Initialize graph adjacency list
+        for (int i = 0; i < n; i++) {
+            graph.put(i, new ArrayList<>());
+        }
+
+        // Build the graph
+        for (int[] edge : edges) {
+            int a = edge[0], b = edge[1];
+            graph.get(a).add(b);
+            graph.get(b).add(a);
+        }
+
+        boolean[] visited = new boolean[n];
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                HashSet<Integer> nodes = new HashSet<>();
+                dfs(i, graph, visited, nodes);
+                
+                // Check if this component is a complete graph
+                boolean isComplete = true;
+                for (int node : nodes) {
+                    if (graph.get(node).size() != nodes.size() - 1) {
+                        isComplete = false;
+                        break;
+                    }
+                }
+
+                if (isComplete) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private void dfs(int node, HashMap<Integer, ArrayList<Integer>> graph, boolean[] visited, HashSet<Integer> nodes) {
+        if (visited[node]) return;
+        visited[node] = true;
+        nodes.add(node);
+
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
+                dfs(neighbor, graph, visited, nodes);
+            }
+        }
+    }
+}
